@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+}
+
+/* =================== Global styles =================== */
+
+html {
+  font-size: 16px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #bbb;         
+  font-style: italic; 
+  font-weight: 400; 
+  opacity: 1;
+}
+
+/* =================== Global classes =================== */
+.d-flex {
+  display: flex;
+}
+
+.d-block {
+  display: block;
+}
+
+.mb-3 {
+  margin-bottom: 1rem!important;
+}
+
+.m-0 {
+  margin: 0!important;
+}
+
+.ms-2 {
+  margin-left: .5rem!important;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.ms-2 {
+  margin-left: 0.5rem;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+
+/* =================== Grid classes =================== */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.938rem;
+  margin-right: -0.938rem;
+}
+
+.col {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.container,
+.container-fluid, 
+.col {
+  padding-left: 0.938rem;
+  padding-right: 0.938rem;
+}
+
+
+
+/* =================== Button classes =================== */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+
+
+/* =================== Card styles =================== */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+
+.card-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+
+.card-fieldset > .form-body {
+  padding: 1.25rem;
+}
+
+
+/* =================== Form styles =================== */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-check-input {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.25em;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1em 1em;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+
+.form-check-input.is-invalid,
+.form-select.is-invalid, 
+.form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.form-check-label {
+  margin-bottom: 0;
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.form-check {
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5em;
+  margin-bottom: 0.125rem;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0.25em;
+}
+
+.form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+}
+
+.form-check-input {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.25em;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, .25);
+}
+
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+
+
+/* =================== App styles =================== */
+.App {
+   padding: 2rem  0;
+}
+
+.form-wrapper {
+  max-width: 900px;
+  padding: 1.25rem;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.625rem;
+}
+
+.form-header {
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.form-wrapper .card {
+  margin-bottom: 20px;
+}
+
+
+.loading {
+  text-align: center;
+  padding: 2rem; 
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+
+
+
+/* =================== Media queries =================== */
+@media (min-width: 768px) {
+  .col-md-6 {
+      flex: 0 0 auto;
+      width: 50%;
+  }
+  .col-md-4 {
+      flex: 0 0 auto;
+      width: 33.33333333%;
+  }
+}

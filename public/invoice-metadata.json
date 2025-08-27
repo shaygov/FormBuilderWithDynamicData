@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://invoicepro.com/invoice.schema.json",
+  "description": "This JSON shema defines an invoice form",
+  "entity": "InvoicePRO.Invoice",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": "3",
+          "maxLength": "256"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "addressLine1": {
+              "type": "string",
+              "minLength": "3",
+              "maxLength": "256"
+            },
+            "addressLine2": {
+              "type": "string",
+              "minLength": "3",
+              "maxLength": "256"
+            },
+            "city": {
+              "type": "string",
+              "minLength": "2",
+              "maxLength": "50"
+            },
+            "zipCode": {
+              "type": "string",
+              "minLength": "4",
+              "maxLength": "12",
+              "pattern": "\\d{4,12}"
+            },
+            "state": {
+              "type": "string",
+              "minLength": "5",
+              "maxLength": "24"
+            }
+          },
+          "required": ["addressLine1", "city", "zipCode", "state"]
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$"
+        },
+        "email": {
+          "type": "string",
+          "pattern": "\\A[A-Z0-9+_.-]+@[A-Z0-9.-]+\\Z"
+        }
+      },
+      "required": ["name", "address", "phone"]
+    },
+    "lineItems": {
+      "type": "array",
+      "items": {
+        "entity": "",
+        "type": "object",
+        "properties": {
+          "itemNumber": {
+            "type": "number",
+            "minimum": 1
+          },
+          "itemName": {
+            "type": "string",
+            "minLength": "1",
+            "maxLength": "256"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "enum": ["kg", "pcs"]
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 0.001
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0.01
+          },
+          "lineTotal": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "total": {
+      "type": "number",
+      "minimum": 0
+    },
+    "includeVAT": {
+      "type": "boolean"
+    },
+    "taxAmount": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": ["customer", "lineItems", "total", "includeVAT", "taxAmount"]
+}
