@@ -131,9 +131,8 @@ class TextField extends BaseFormField {
           this.errors = [];
           setValue(this.path, e.target.value);
         }}
-        className={`form-control ${this.name === 'lineTotal' || this.name === 'total' ? 'bg-light' : ''} ${this.errors.length > 0 ? 'is-invalid' : ''}`}
+        className={`form-control ${this.errors.length > 0 ? 'is-invalid' : ''}`}
         id={this.path}
-        disabled={this.name === 'lineTotal' || this.name === 'total'}
       />
     );
 
@@ -172,9 +171,8 @@ class SelectField extends BaseFormField {
           this.errors = [];
           setValue(this.path, e.target.value);
         }}
-        className={`form-select ${this.name === 'lineTotal' || this.name === 'total' ? 'bg-light' : ''} ${this.errors.length > 0 ? 'is-invalid' : ''}`}
+        className={`form-select ${this.errors.length > 0 ? 'is-invalid' : ''}`}
         id={this.path}
-        disabled={this.name === 'lineTotal' || this.name === 'total'}
       >
         <option value="">Select...</option>
         {this.property.enum.map(option => (
