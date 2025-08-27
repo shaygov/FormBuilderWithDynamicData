@@ -15,15 +15,18 @@ class BaseFormField {
   validate(value) {
     this.errors = [];
     
-    if (this.isRequired() && (value === undefined || value === null || value === '')) {
+    const isEmpty = value === undefined || value === null || value === '';
+    
+    if (this.isRequired() && isEmpty) {
       this.errors.push('Required');
       return false;
     }
-
-    if (value === undefined || value === null || value === '') {
+    
+    if (isEmpty) {
       return true;
     }
 
+    // Validate pattern if exists
     if (this.property.pattern) {
       const regex = BaseFormField.createRegexFromJson(this.name, this.property.pattern);
       if (!regex.test(value)) {
@@ -36,6 +39,7 @@ class BaseFormField {
       }
     }
 
+    // Call custom validation if exists
     if (typeof this.validateValue === 'function') {
       return this.validateValue(value);
     }
